@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+//apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://mvnrepository.com/maven2'
+    }
+    maven {
+        url 'http://download.java.net/maven/2'
+    }
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.relevantcodes:extentreports:2.41.2'
+    testCompile 'org.testng:testng:6.10'
+}
+
+test {
+    useTestNG()
+    scanForTestClasses = false
+    include '**/Test*'
+    //options.suites("testNg.xml")
+
+    testLogging {
+        showStandardStreams = true
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+// Return a list of all the external libraries
+def getLibraries() {
+    return configurations.runtime.filter{!it.name.startsWith('contentplatform')}
+}
+

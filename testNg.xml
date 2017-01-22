@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SuiteName" parallel="methods">
+    <test name="TestName" allow-return-values="true">
+        <classes>
+            <class name="qa.test.simplefactoryusage.Test001" />
+            <class name="qa.test.simplefactoryusage.Test002" />
+            <class name="qa.test.complexfactory.Test001C"/>
+            <class name="qa.test.complexfactory.Test002C" />
+            <class name="qa.test.parallelwithbasetest.Test001P" />
+            <class name="qa.test.parallelwithbasetest.Test002P" />
+        </classes>
+    </test>
+</suite>

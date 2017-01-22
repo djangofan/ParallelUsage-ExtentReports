@@ -1,0 +1,8 @@
+test-output/
+.classpath
+.DS_Store
+.project
+bin/
+build/
+.idea/
+*.iml
